@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>የመጨራሻው</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f0, #fff1e6);
+      font-family: 'Poppins', sans-serif;
+      overflow-y: auto;
+      min-height: 100vh;
+    }
+    .petal {
+      position: absolute;
+      top: -10px;
+      background-size: contain;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+    .fade-in {
+      animation: fadeInUp 1.8s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .line {
+      opacity: 0;
+      display: block;
+      animation: revealLine 1s ease-out forwards;
+    }
+    @keyframes revealLine {
+      to {
+        opacity: 1;
+      }
+    }
+    .button-surprise {
+      background: linear-gradient(90deg, #ff80ab, #ff4081);
+      box-shadow: 0 4px 14px rgba(255, 64, 129, 0.4);
+    }
+    .shake {
+      animation: shake 0.3s ease-in-out;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+    .prompt-box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px dashed #ff80ab;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+    }
+    .prompt-box p {
+      margin-bottom: 0.5rem;
+    }
+    .prompt-link {
+      color: #ff4081;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center p-4 relative">
+  <!-- Rose Petals Animation -->
+  <script>
+    const count = 30;
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      const size = 20 + Math.random() * 30;
+      petal.style.width = size + 'px';
+      petal.style.height = size + 'px';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(petal);
+    }
+  </script>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-md w-full bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-6 text-center fade-in">
+    <h1 class="script-font text-4xl text-pink-600 mb-4 font-semibold">የፍቅር መጠኑ ያለመጠን ማፍቀር ነው: ይህ ፍቅር ዳሞ እኔ ለንቺ ምሰመኝ ነው::</h1>
+    <div class="text-gray-700 text-left space-y-4 mb-6">
+      <span class="line" style="animation-delay:0.5s;">💖እወድሻለሁ ቃሉ ፍቅሬን መግለጫ እንጂ የልቤ ድምፅ አይደለም<br>
+
+        ብዙ ያነሱ.....<br> በተመስጦ ሆኜ ፣ ዳግም ፈልጌ የማላገኛቸው የማላስታውሳቸው ፣<br> አስቤ የማልደርስባቸውንም ቃላትን ተጠቅሜ ስሜቴን ገልጫለሁ .</span>
+      <span class="line" style="animation-delay:1s;">ብዙ ከአይን የማይሞሉ......ያነሱትን ተግብሬያለሁ <br>
+
+        ብዙ   ነገር ግን ጥቂት ስጦታዎችን አበርክቻለሁ<br> 
+        
+        ይህ ሁሉ ግን በሰውኛ በዝቶ ይታይ እንጂ <br>በልቤ ሚዛን ሚምንት ሆኖ ያሳፍረኛል 
+        ላንቺ ያንስብሻላ!!</span>
+      <span class="line" style="animation-delay:1.5s;">እና የኔ ህይወት❤️<br>
+          መሆን የምሻው,ላድረግ የምወደውም <br>ሆነ እንዲኖረኝ የምፈልገው ነገር ሁሉ<br> በአብሮነታችን መሀል እንዲፈጠር የምሻው እንጂ <br>ለአንዲቷ ነብሴ ብቻ እንዲሆን አይደለም።<br>
+        አንቺን ከልቤ ሳላወዳጅ የግል ፍላጎት የምለው አይኖረኝም።<br> ..........................
+        </span>
+      <span class="line" style="animation-delay:2s;">ስለ መፍቀሬ ከጠያቅሽኝ ደሞ<br>
+        ከመተንፈስና አንቺን ከማፍቀር መካከል ለመምረጥ ብገደድ<br> የመጨረሻውን እስትንፋሴን ተጠቅሜ አንቺን ማፍቀር እመርጣለሁ።
+        
+        
+        ┄┄┄┄┉✽‌»‌🌹✿🌹»‌✽‌┉┉┄┄┄</span>
+      <span class="line" style="animation-delay:2.5s;">🌷estinfase bezih 6 werat west mnm yahl beakel abren banhon<br>
+         be eyandandu menaslefchew negroch atgeb leategb banhonm<br>
+      gn hulem behaseb abren nebren beakel benrarqem lebachn gn tesasrual alhamdulillah bezih 180 kenat west yan yahl tegi yedarse megacet mehalchn tefatro aywekm negr gn yeh malet yelam aydelm yesew lij hono maysest yelam manm sew perfect aydelm ena balfut gizeyat west awkem hona salwek yaskeymkushi negroch hulu yekrta ena bewadefitu mehalchen balew negr endestakekl mefalgew negr or yaltemches kale endetagregn felgalw berget ale kesew lij gudlat aytefam gn hulum gudlat demo mestakekl aydelm gn endazam hono mestakekl mechlu or tawyeytenbet mesmar masyez menchelw negr yenoral ena mnm behon lemasmet ena lemasheshl zegju negn ena aswekgn, siketl betttm nw mafkresh</span>
+      
+    </div>
+
+    <!-- Surprise Photo Reveal -->
+    <button id="surpriseBtn" class="button-surprise text-white px-6 py-3 rounded-full font-medium mt-4 hidden transition-transform hover:scale-105">
+      Surprise 📸
+    </button>
+    <div id="photoReveal" class="hidden mt-6">
+      <img src="your-photo.jpg" alt="Our Special Moment" class="w-full rounded-2xl shadow-lg" />
+      <p class="mt-3 text-sm text-gray-500">A snapshot of us together, forever in my heart.</p>
+    </div>
+
+    <!-- Telegram/Voice Call Prompt -->
+    <div id="prompt" class="prompt-box hidden">
+      <p class="font-semibold text-pink-500">📬 Reach Out to Me:</p>
+      <p>Send me a <a href="tg://resolve?domain=YourUsername" class="prompt-link">Telegram message</a> or a <a href="tel:+251XXXXXXXXXX" class="prompt-link">voice call</a> and tell me:</p>
+      <p class="italic">"How do you feel about our relationship so far?"</p>
+      <p class="italic">"What would you like us to change or grow together?"</p>
+      <p class="text-xs text-gray-400 mt-2">Your thoughts mean the world to me ❤️</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.petal').forEach(p => p.style.backgroundImage = "url('https://i.imgur.com/Kn0EJjK.png')");
+  </script>
+</body>
+</html>

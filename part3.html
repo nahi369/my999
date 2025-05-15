@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ክፍል 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -8px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -8px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.8s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex items-center justify-center px-4 py-8 text-center">
+
+  <!-- Floating Hearts Background -->
+  <div class="hearts" id="hearts-container"></div>
+
+  <!-- Main Container -->
+  <div class="z-10 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl px-5 py-8 w-full max-w-md fade-in">
+
+    <!-- Romantic Typing Quote -->
+    <h1 class="text-xl sm:text-2xl font-bold text-pink-600 mb-4 leading-snug">
+      <span id="quoteText"></span>
+    </h1>
+    <p>beka yehe yemcershaw teyake nw🙄</p>
+
+    <!-- Relationship Question -->
+    <p class="text-base text-gray-800 mb-3 leading-relaxed">
+      💌 man beye setarshis des yelgnal?</p>
+
+    <!-- Answer Input -->
+    <input id="answer" type="text"
+      class="w-full p-2.5 text-sm rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-500 mb-3" />
+
+    <!-- Submit Button -->
+    <button onclick="checkAnswer()"
+      class="w-full text-sm bg-gradient-to-r from-pink-500 to-rose-400 text-white py-2.5 rounded-full hover:scale-[1.03] transition">
+      Answer 💖
+    </button>
+
+    <!-- Feedback -->
+    <p id="feedback" class="text-red-500 mt-2 text-sm hidden">Oops! degame mokri, yehn enkuan mesat yelabshim yne😘</p>
+
+    <!-- Reveal Section -->
+    <div id="revealContent" class="hidden mt-6">
+      <div class="rounded-lg overflow-hidden shadow-md mb-3">
+       <p>አንቺ ለኔ ❣️ <br>
+        .... ..... .....
+        <br> በቃል የተቀመመ<br>
+        ዝርዝር ዜማው የሚያነቃ<br>
+        አንድ ብቻ ሆኖ ሳለ ለብዙሃን የሚበቃ<br>
+        ጠንከር ያለ ለስለስ ያለ<br>
+        የደረሰ የተኳለ<br>
+        እንደ ፍቅር ያለ ሆኖ እንደ ፍቅር የበሰለ<br>
+        ባፍቃሬ ልብ የሚነገር በገጣሚ የተፃፈ<br>
+        በአንደበት የሚዘመር ከእስከዛሬው የገዘፈ<br>
+        ምርጥ ግጥም ቆንጆ ቅኔ<br>
+        👉እንደዛ ነሽ አንቺ ለኔ 🤗🤗 (*2)<br>
+        በቃ አልልም <br>
+በዚህ ብቻ አለቆምም<br>
+ገና አለ ብዙ ምልሽ<br>
+ከልዳከመሽ ከሰመሽኝ<br>
+ግን የኔ ውድ ሰሳሁልሽ<br>
+በመደመጥ ምደክሚብኝ<br>
+ቢመስለኝ እንደምወድሽ<br>
+ከነገርኩሽ ሌላው ይቅርብኝ<br>.....<br>.........<br>.......<br>............<br>...........<br>
+እንደ ንጋት ፀሐይ ልብ እንደሚያሞቀው<br>
+እንደ ቀትር ጥላ <br>
+ጉልበት እንደ ሚያድሰው<br>
+እንደ ምሽት ጀንበር<br>
+ ልክ እንደሚናፈቀው<br>
+ብዙ ይቀረኛል #ገና እወድሻለሁ<br><br>
+
+
+✨️<br>
+ከሰማይ ሰማያት የሚወረወር<br>
+ያ'ደማቅ ኮኮብ #ብርሃኑ የሚያምር<br>
+ልክ እንደዛው ነው የኔና ያንቺ ፍቅር ::<br><br>
+
+💝<br>
+ገና እወድሻለሁ<br>
+ገና አፈቅርሻለው<br>
+ገና ሰው እስኪገርመው ዓለም እስኪቀና<br><br>
+
+
+ገና እወድሻለሁ😍🥰😘
+
+      </p>
+      </div>
+      <a href="last.html"
+        class="block bg-pink-600 hover:bg-pink-700 text-white text-sm py-2 rounded-full transition mt-2">
+        💫 ወዳ መጨራሻው ለመሄድ ዝግጁ ነሽ!
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Typing effect
+    const quote = `"ከትላንት ይልቅ ዛሬ ይበልጥ አፈቀርኩሽ: ነገ ደግሞ ይበልጥ አፈቅርሻለሁ🥰"`;
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < quote.length) {
+        document.getElementById("quoteText").innerHTML += quote.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    typeWriter();
+
+    // Answer checker
+    function checkAnswer() {
+      const input = document.getElementById('answer');
+      const answer = input.value.trim().toLowerCase();
+      const correctAnswers = ['yne', 'yene', 'Yne', 'yane']; // customize these
+      const feedback = document.getElementById('feedback');
+      const reveal = document.getElementById('revealContent');
+
+      if (correctAnswers.includes(answer)) {
+        feedback.classList.add('hidden');
+        reveal.classList.remove('hidden');
+      } else {
+        feedback.classList.remove('hidden');
+        input.classList.add('shake');
+        setTimeout(() => input.classList.remove('shake'), 400);
+      }
+    }
+
+    // Floating Hearts Generator
+    const hearts = document.getElementById('hearts-container');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${4 + Math.random() * 3}s`;
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }, 600);
+  </script>
+</body>
+</html>

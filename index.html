@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>የህዎቴ ምርጡ 6 ወራት 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap');
+
+    body {
+      background: linear-gradient(to right, #ffe0f0, #ffe9ec);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff6fa4;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff6fa4;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+      margin: 120px auto;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      color: #ff4081;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #444;
+    }
+
+    input, button {
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 16px;
+      width: 90%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    audio {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #ff4081;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 80px 15px;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    <div class="heart" style="left:10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left:25%; animation-delay: 1s;"></div>
+    <div class="heart" style="left:40%; animation-delay: 2s;"></div>
+    <div class="heart" style="left:60%; animation-delay: 3s;"></div>
+    <div class="heart" style="left:75%; animation-delay: 4s;"></div>
+    <div class="heart" style="left:90%; animation-delay: 5s;"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <h1>እንዴት ነሺልኝ የኔ💖</h1>
+    <p>እንኳን ለ 6ኛ ወራችን አደረሰሽ! 🌙</p>
+    <p>ላረጋግጥልሽ የምፈልገው ነገር ቢኖር፣ ምን ያህል እንደምናፍቅሽና አንቺ ካጠገቤ ርቀሽ አለም ምን ያህል ባዶ እንደሆነችብኝ ነው፡፡</p>
+    <p><strong>eski yemastewsi bekateshn enfatnew, hulum tekeklgna melashoch yerasechw yehona waga alechw😊</strong></p>
+    <p>mnm yahl benrarq, mnm befatr mn! ene ga maykeyrew negr mndnew? </p>
+
+    <input type="text" id="answer" placeholder="Type your answer...">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    let attempt = 0;
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.toLowerCase();
+      const resultDiv = document.getElementById("result");
+
+      const correctAnswers = [
+        "lane yaleh fkr", 
+        "lene yaleh fkr", 
+        "lene yaleh fikr", 
+        "lane yaleh fikr", 
+        "fkrih", 
+        "fikreh", 
+        "fikrh"
+      ];
+
+      if (correctAnswers.some(ans => input.includes(ans))) {
+        resultDiv.innerHTML = `
+          <strong><p> Awo hewote, yan nw yene qal mechem mayqerw hulem mnm befiter mn anchin mafkren alkomim lanchi yalegn fkr aykeyrem😘.</p></strong>
+          <p>mechm lanchi yalegnin fkren mnm zefn baygeltselgnim, yehn gn sademxew hulem tez teygnalshi፣ ታጋበዠልኝ:</p>
+          <audio controls>
+            <source src="audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+          <br><br>
+          <a href="part2.html">ለቀጠዩ ክፍል ዝግጁ ነሽ? ➡️</a>
+        `;
+      } else {
+        attempt++;
+        let message = `<p style="color:#e91e63; font-weight:500;">💭 Oops! letensh, dege mokri hewote! akelw ayketshim! 💪💗</p>`;
+        if (attempt >= 5) {
+          message += `<p style="margin-top:10px; color:#444;">💡 Hint: endamtegegniw tesfa kekortesh😔, endamtekorci akelw... gn kehona <b>spellingun bota eyakeyayrsh mokri➡️ *yaleh fkr lane* 😘</p>`;
+        }
+        resultDiv.innerHTML = message;
+      }
+    }
+  </script>
+</body>
+</html>

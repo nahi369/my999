@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ቀጠዩ ክፍል – A Memory in Motion 🎥</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300;500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5em;
+      color: #b30059;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .question, p {
+      font-size: 1.2em;
+      text-align: center;
+      color: #333;
+      margin: 10px;
+    }
+
+    input, button {
+      font-size: 1em;
+      padding: 12px 18px;
+      margin-top: 10px;
+      border-radius: 20px;
+      border: 2px solid #e91e63;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input {
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button {
+      background: #e91e63;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .feedback {
+      margin-top: 15px;
+      color: #d1004d;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .hint {
+      margin-top: 10px;
+      color: #555;
+      background: #fff0f5;
+      padding: 10px;
+      border-radius: 15px;
+      font-style: italic;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .content {
+      margin-top: 30px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .message {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 25px;
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(255, 105, 135, 0.4);
+    }
+
+    .next-link {
+      display: inline-block;
+      margin-top: 25px;
+      background: #f06292;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 8px #f06292; }
+      50% { transform: scale(1.05); box-shadow: 0 0 15px #f48fb1; }
+      100% { transform: scale(1); box-shadow: 0 0 8px #f06292; }
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 2em; }
+      .message { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>የመጀመሪያሽ ላልሆን እችላለሁ አላማዬ ግን የመጨረሻው መሆን ነው፡ የወደፊቷ ሚስቴ🥰</h1>
+  <h1>Andi tiyake encamer ha 🤔</h1>
+  <p class="question"><b>Man belshi setargn des yelagnl?</b></p>
+  <p>Akelw betam nw yakelelkut, yaw tawki yele tadiya tensh enkuan endedakmibgn alfelgim 😝!</p>
+
+  <input type="text" id="answer" placeholder="Your answer here..." />
+  <br>
+  <button onclick="checkAnswer()">Reveal</button>
+
+  <div id="feedback" class="feedback"></div>
+  <div id="hint" class="hint" style="display: none;">💡 Hint: mechs yehm yekbdeshal beye alsebm, lemangnawm keraseshw 4 fidal nat!</div>
+
+  <div class="content" id="reveal" style="display: none;">
+    <div class="message">
+      andit qal beqi nat selamin lemasfen, chgren lemaqref, degamin lematfet, erasen lemaskad,<br>
+       yehonutn lemarset, yalnorutn lemayt, alemin lemawded, demom lemdaset, honew bemayqut alem west lemasmet <br>
+      sebal semtash smetesh tawkeyalsh kalwekshi ene betagber yehe hulu sehon berasew selayw mesker alew, <br>
+      ynewa endaziya belash setarign ene ga mehonw yehe nw yeanditn qal akemi teradwibt!!!   
+    </div>
+
+    <video controls>
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <br>
+    <a href="part3.html" class="next-link">Next ➡️</a>
+  </div>
+
+  <script>
+    const correctAnswers = [
+      "bale", 
+      "yne", 
+      "yne bale", 
+      "yene bale", 
+      "yne wde bale", 
+      "yene wde bale"
+    ];
+
+    let attempts = 0;
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const feedback = document.getElementById("feedback");
+      const hint = document.getElementById("hint");
+
+      if (correctAnswers.includes(input)) {
+        document.getElementById("reveal").style.display = 'block';
+        feedback.innerText = "";
+        hint.style.display = "none";
+      } else {
+        attempts++;
+        feedback.innerText = "Hmm... degame mokri  yne💖";
+        if (attempts >= 5) {
+          hint.style.display = "block";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
